@@ -1,0 +1,117 @@
+{
+	"htmltoscene": {
+		"modulename": "HTML Para Cena",
+		"scenesettings": {
+			"pathPlaceholder": "Caminho relativo de arquivo desde \"Data\" para um arquivo .HTML ou uma URL",
+			"uisettings": "Configurações de Interface",
+			"miscsettings": "Configurações Diversas",
+			"advsettings": "Configurações Avançadas",
+			"recommendationtip": "Dica: ",
+			"warningtip": "AVISO: ",
+			"enable": {
+				"name": "Ativar",
+				"desc": "Ativa HTML Para Cena nesta cena."
+			},
+			"fileLoc": {
+				"name": "Selecionar arquivo HTML",
+				"hint": "Você pode selecionar qualquer arquivo HTML armazenado na pasta data do seu FoundryVTT usando um caminho relativo.",
+				"tip": "Faça isso em uma cena vazia para aumentar o desempenho. Você também pode inserir alguns sites que permitem iframes."
+			},
+			"minUI": {
+				"name": "Interface Mínima",
+				"desc": "Esconde elementos desnecessários da interface do FoundryVTT enquanto um arquivo HTML está sendo exibido."
+			},
+			"keepTop": {
+				"name": "Manter Troca de Cenas",
+				"desc": "Mantém o Troca de Cenas no topo da tela em qualquer caso."
+			},
+			"keepPlayerList": {
+				"name": "Manter Lista de Jogadores",
+				"desc": "Mantém a lista de jogadores em sua posição original."
+			},
+			"keepBottomControls": {
+				"name": "Manter Controles Inferiores",
+				"values": {
+					"defaultnone": "Esconder todos os controles",
+					"macrobaronly": "Permitir a barra de atalhos",
+					"camerasonly": "Permitir as câmeras",
+					"both": "Permitir a barra de atalhos e as câmeras",
+					"macroplusfps": "Permitir a barra de atalhos e o medidor de FPS",
+					"cameraplusfps": "Permitir as câmeras e o medidor de FPS",
+					"bothplusfps": "Permitir a barra de atalhos, as câmeras e o medidor de FPS",
+					"fpsonly": "Permitir apenas o medidor de FPS do FoundryVTT"
+				},
+				"desc": "Permite que você selecione como deseja que os controles inferiores sejam exibidos."
+			},
+			"spaceRight": {
+				"name": "Respeitar Espaço da Barra Lateral",
+				"desc": "Adiciona um espaço vazio sob a barra lateral.",
+				"tip": "Você pode alterar a cor de fundo do canvas para afetar a cor atrás dos controles."
+			},
+			"rightDisabled": {
+				"name": "Esconder Barra Lateral",
+				"desc": "Esconde a barra lateral da interface, reativando o trocador de cenas no topo. (Ideal se seu grupo se comunica por chat de voz ou não precisa rolar dados).",
+				"tip": "Você pode querer ter outra cena visível para recuperar os controles normais do FoundryVTT. (Se não, você sempre pode desativar este módulo para a cena atual)."
+			},
+			"hidePaused": {
+				"name": "Esconder 'Jogo Pausado'",
+				"desc": "Esconde 'Jogo Pausado' sobre o arquivo HTML se o jogo estiver pausado."
+			},
+			"hideSmallTime": {
+				"name": "Esconder 'SmallTime'",
+				"desc": "Esconde o relógio do SmallTime (se ativo)."
+			},
+			"hideBoard": {
+				"name": "Esconder Tabuleiro do FoundryVTT",
+				"desc": "Esconde o tabuleiro para um aumento perceptível de desempenho. (Você NÃO renderizará o canvas).",
+				"tip": "Outros módulos que possam depender do tabuleiro podem apresentar mau funcionamento ou não fazer nada, verifique o console do navegador."
+			},
+			"passData": {
+				"name": "Ativar Ajudantes Para Comunicação Bidirecional",
+				"desc": "Coloca em uso variáveis inativas para ajudar a tornar a comunicação bidirecional entre o iframe e o FoundryVTT mais fácil. Veja o wiki no GitHub para uma melhor explicação.",
+				"tip": "Para fazer uso completo disso, você precisará ter conhecimento de programação e macros."
+			},
+			"dataUpdateRate": {
+				"name": "Taxa de Atualização do FoundryVTTAccess",
+				"values": {
+					"default": "Não atualizar. Atualizar para atualizar",
+					"fivesec": "Uma atualização a cada 5 segundos",
+					"onesec": "Uma atualização por segundo",
+					"halfsec": "Duas atualizações por segundo",
+					"cuarterofasec": "Quatro atualizações por segundo",
+					"realtime": "Tempo real"
+				},
+				"desc": "Altera a velocidade com que a variável FoundryVTTAccess é atualizada com novas informações. Use updateRate para sincronizá-la com seu iframe.",
+				"tip": "Isso pode afetar o desempenho. Depende do uso."
+			},
+			"iFrameRefreshRate": {
+				"name": "Atualização de IFrame",
+				"values": {
+					"defaultnone": "NÃO será forçadamente atualizado",
+					"oneminute": "Será forçadamente atualizado uma vez por minuto",
+					"thirtyseconds": "Será forçadamente atualizado uma vez a cada trinta segundos",
+					"fifteenseconds": "Será forçadamente atualizado uma vez a cada quinze segundos",
+					"tenseconds": "Será forçadamente atualizado uma vez a cada dez segundos",
+					"fiveseconds": "Será forçadamente atualizado uma vez a cada cinco segundos"
+				},
+				"desc": "Altera a velocidade com que o iframe é forçadamente atualizado.",
+				"tip": "Este recurso destina-se a fornecer uma forma de recarregar o iframe sem ter que recarregar o FoundryVTT. Você não deve usar isso como uma forma de atualizar informações dele, pois tentará recarregar para todos os jogadores, tendo que servir tudo novamente."
+			},
+			"autoMacros": {
+				"name": "Macros Automatizadas",
+				"desc": "Esta configuração permite que você execute macros em diferentes hooks. Você precisa digitar o nome EXATO da macro. Veja o wiki no GitHub para uma melhor explicação.",
+				"htmltosceneReadyMacro": "Assim que o HTML Para Cena carregar o iframe e HTMLAccess for injetado. (Uma vez)",
+				"iframeReadyMacro": "Assim que o hook iframeReady for acionado (Apenas fontes compatíveis)",
+				"iframeUpdatedMacro": "Assim que o hook iframeUpdated for acionado (Apenas fontes compatíveis)"
+			},
+			"rememberjsexecution": "Por favor, lembre-se de inserir apenas arquivos em que você confia totalmente. Você pode estar permitindo execução de javascript indesejado em seu sistema. E isso é ruim."
+		},
+		"worldsettings": {
+			"showLogo": {
+				"name": "Manipulação Pesada do Logo do FoundryVTT",
+				"hint": "Quando desativado, faz com que o HTMLToScene esconda o logo APENAS quando necessário. (Não o mostrará após uma mudança de cena. Isso permite alguma compatibilidade com alguns módulos e temas que alteram o logo que normalmente não funcionam)"
+			}
+		}
+	}
+}
+

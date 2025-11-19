@@ -1,0 +1,138 @@
+<div class="tab" data-tab="htmltoscene">
+	<div class="form-group">
+		<label for="htmltoscene-enable">{{ localize "htmltoscene.scenesettings.enable.name" }}</label>
+		<input type="checkbox" id="htmltoscene-enable" name="flags.htmltoscene.enable" data-dtype="Boolean" data-sync="enabled"
+			{{#if enable}} checked{{/if}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.enable.desc" }}</p>
+	</div>
+	<div class="form-group">
+		<label for="htmltoscene-fileLoc">{{ localize "htmltoscene.scenesettings.fileLoc.name" }}</label>
+		<div class="form-fields">
+			<input id="htmltoscene-fileLoc" data-dtype="String" class="html-input" type="text" name="flags.htmltoscene.fileLoc" placeholder="{{localize 'htmltoscene.scenesettings.pathPlaceholder'}}" value="{{fileLoc}}" aria-label="{{localize 'htmltoscene.scenesettings.fileLoc.name'}}"/>
+			<!--<button type="button" class="file-picker" data-type="any" id="html-picker" name="html-picker"
+				data-target="flags.htmltoscene.fileLoc" title="Browse Files">
+				<i class="fas fa-file-import fa-fw">
+				</i>
+			</button> FoundryVTT 0.9 V2 still doesn't support uploading unsupported files. Lacking the knowledge to do a custom filepicker...-->
+		</div>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.fileLoc.hint"}}</p>
+		<p class="notes"><b>{{ localize "htmltoscene.scenesettings.recommendationtip" }}</b>{{ localize "htmltoscene.scenesettings.fileLoc.tip" }}
+		</p>
+	</div>
+	<p class="section-header">{{ localize "htmltoscene.scenesettings.uisettings" }}</p>
+	<hr class="section-divider">
+	<div class="form-group">
+		<label for="htmltoscene-minUI">{{ localize "htmltoscene.scenesettings.minUI.name" }}</label>
+		<input type="checkbox" id="htmltoscene-minUI" name="flags.htmltoscene.minUI" class="htmltosceneEnabledOnly" data-dtype="Boolean"
+			data-sync="minUI" {{#if minUI}} checked{{/if}} {{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.minUI.desc" }}</p>
+	</div>
+	<div class="form-group">
+		<label for="htmltoscene-keepTop">{{ localize "htmltoscene.scenesettings.keepTop.name" }}</label>
+		<input type="checkbox" id="htmltoscene-keepTop" class="htmltosceneMinUIOnly htmltosceneEnabledOnly" name="flags.htmltoscene.keepTop"
+			data-dtype="Boolean" {{#if keepTop}} checked{{/if}} {{#unless minUI}} disabled {{/unless}}
+			{{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.keepTop.desc" }}</p>
+	</div>
+	<div class="form-group">
+		<label for="htmltoscene-keepPlayerList">{{ localize "htmltoscene.scenesettings.keepPlayerList.name" }}</label>
+		<input type="checkbox" id="htmltoscene-keepPlayerList" class="htmltosceneMinUIOnly htmltosceneEnabledOnly"
+			name="flags.htmltoscene.keepPlayerList" data-dtype="Boolean" {{#if keepPlayerList}} checked{{/if}}
+			{{#unless minUI}} disabled {{/unless}} {{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.keepPlayerList.desc" }}</p>
+	</div>
+	<div class="form-group">
+		<label for="htmltoscene-keepBottomControls">{{ localize "htmltoscene.scenesettings.keepBottomControls.name" }}</label>
+		<select id="htmltoscene-keepBottomControls" name="flags.htmltoscene.keepBottomControls" class="htmltosceneMinUIOnly htmltosceneEnabledOnly"
+			data-dtype="Number" {{#unless minUI}} disabled {{/unless}} {{#unless enable}} disabled {{/unless}} aria-label="{{localize 'htmltoscene.scenesettings.keepBottomControls.name'}}">
+			{{selectOptions keepBottomControlsOptions selected=keepBottomControls}}
+		</select>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.keepBottomControls.desc" }}</p>
+	</div>
+	<div class="form-group">
+		<label for="htmltoscene-spaceRight">{{ localize "htmltoscene.scenesettings.spaceRight.name" }}</label>
+		<input type="checkbox" id="htmltoscene-spaceRight" name="flags.htmltoscene.spaceRight" data-dtype="Boolean" class="htmltosceneEnabledOnly"
+			{{#if spaceRight}} checked{{/if}} {{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.spaceRight.desc" }}</p>
+		<p class="notes">
+			<b>{{ localize "htmltoscene.scenesettings.recommendationtip" }}</b>{{ localize "htmltoscene.scenesettings.spaceRight.tip" }}</p>
+	</div>
+	<div class="form-group">
+		<label for="htmltoscene-rightDisabled">{{ localize "htmltoscene.scenesettings.rightDisabled.name" }}</label>
+		<input type="checkbox" id="htmltoscene-rightDisabled" name="flags.htmltoscene.rightDisabled" data-dtype="Boolean"
+			class="htmltosceneEnabledOnly" {{#if rightDisabled}} checked{{/if}} {{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.rightDisabled.desc" }}</p>
+		<p class="notes"><b>{{ localize "htmltoscene.scenesettings.warningtip" }}</b>{{ localize "htmltoscene.scenesettings.rightDisabled.tip" }}
+		</p>
+	</div>
+	<p class="section-header">{{ localize "htmltoscene.scenesettings.miscsettings" }}</p>
+	<hr class="section-divider">
+	<div class="form-group">
+		<label for="htmltoscene-hidePaused">{{ localize "htmltoscene.scenesettings.hidePaused.name" }}</label>
+		<input type="checkbox" id="htmltoscene-hidePaused" name="flags.htmltoscene.hidePaused" data-dtype="Boolean" class="htmltosceneEnabledOnly"
+			{{#if hidePaused}} checked{{/if}} {{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.hidePaused.desc" }}</p>
+	</div>
+	<div class="form-group">
+		<label for="htmltoscene-hideSmallTime">{{ localize "htmltoscene.scenesettings.hideSmallTime.name" }}</label>
+		<input type="checkbox" id="htmltoscene-hideSmallTime" name="flags.htmltoscene.hideSmallTime" data-dtype="Boolean"
+			class="htmltosceneEnabledOnly" {{#if hideSmallTime}} checked{{/if}} {{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.hideSmallTime.desc" }}</p>
+	</div>
+	<p class="section-header">{{ localize "htmltoscene.scenesettings.advsettings" }}</p>
+	<hr class="section-divider">
+	<div class="form-group">
+		<label for="htmltoscene-hideBoard">{{ localize "htmltoscene.scenesettings.hideBoard.name" }}</label>
+		<input type="checkbox" id="htmltoscene-hideBoard" name="flags.htmltoscene.hideBoard" data-dtype="Boolean" class="htmltosceneEnabledOnly"
+			{{#if hideBoard}} checked{{/if}} {{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.hideBoard.desc" }}</p>
+		<p class="notes"><b>{{ localize "htmltoscene.scenesettings.warningtip" }}</b>{{ localize "htmltoscene.scenesettings.hideBoard.tip" }}
+		</p>
+	</div>
+	<div class="form-group">
+		<label for="htmltoscene-passData">{{ localize "htmltoscene.scenesettings.passData.name" }}</label>
+		<input type="checkbox" id="htmltoscene-passData" name="flags.htmltoscene.passData" data-dtype="Boolean" class="htmltosceneEnabledOnly"
+			{{#if passData}} checked{{/if}} data-sync="passData" {{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.passData.desc" }}</p>
+		<p class="notes"><b>{{ localize "htmltoscene.scenesettings.warningtip" }}</b>{{ localize "htmltoscene.scenesettings.passData.tip" }}
+		</p>
+	</div>
+	<div class="form-group">
+		<label for="dataUpdateRateID">{{ localize "htmltoscene.scenesettings.dataUpdateRate.name" }}</label>
+		<select id="dataUpdateRateID" name="flags.htmltoscene.dataUpdateRate" data-dtype="Number" class="htmltosceneEnabledOnly"
+			{{#unless passData}} disabled {{/unless}} {{#unless enable}} disabled {{/unless}} aria-label="{{localize 'htmltoscene.scenesettings.dataUpdateRate.name'}}">
+			{{selectOptions dataUpdateRateOptions selected=dataUpdateRate}}
+		</select>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.dataUpdateRate.desc" }}</p>
+		<p class="notes"><b>{{ localize "htmltoscene.scenesettings.warningtip" }}</b>{{ localize "htmltoscene.scenesettings.dataUpdateRate.tip" }}
+	</div>
+	<div class="form-group">
+		<label for="htmltoscene-iFrameRefreshRate">{{ localize "htmltoscene.scenesettings.iFrameRefreshRate.name" }}</label>
+		<select id="htmltoscene-iFrameRefreshRate" name="flags.htmltoscene.iFrameRefreshRate" class="htmltosceneEnabledOnly" data-dtype="Number"
+			{{#unless enable}} disabled {{/unless}} aria-label="{{localize 'htmltoscene.scenesettings.iFrameRefreshRate.name'}}">
+			{{selectOptions iFrameRefreshRateOptions selected=iFrameRefreshRate}}
+		</select>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.iFrameRefreshRate.desc" }}</p>
+		<p class="notes">
+			<b>{{ localize "htmltoscene.scenesettings.warningtip" }}</b>{{ localize "htmltoscene.scenesettings.iFrameRefreshRate.tip" }}
+	</div>
+	<div class="form-group">
+		<label for="htmltosceneAutoMacrosCB">{{ localize "htmltoscene.scenesettings.autoMacros.name" }}</label>
+		<input type="checkbox" id="htmltosceneAutoMacrosCB" name="flags.htmltoscene.autoMacrosEnabled" data-dtype="Boolean" class="htmltosceneEnabledOnly"
+			{{#if autoMacrosEnabled}} checked{{/if}} data-sync="autoMacros" {{#unless enable}} disabled {{/unless}}>
+		<p class="notes">{{ localize "htmltoscene.scenesettings.autoMacros.desc" }}</p>
+	</div>
+	<div class="form-group htmltosceneAutoMacros">
+		<hr class="section-divider"/>
+		<div class="form-fields htmltoscene-auto-macros-fields">
+			<label for="htmltoscene-selfReadyMacroName" class="sr-only">{{localize 'htmltoscene.scenesettings.autoMacros.htmltosceneReadyMacro'}}</label>
+			<input id="htmltoscene-selfReadyMacroName" data-dtype="String" class="html-input" type="text" name="flags.htmltoscene.selfReadyMacroName" placeholder="{{localize 'htmltoscene.scenesettings.autoMacros.htmltosceneReadyMacro'}}" value="{{selfReadyMacroName}}" aria-label="{{localize 'htmltoscene.scenesettings.autoMacros.htmltosceneReadyMacro'}}"/>
+			<label for="htmltoscene-iframeReadyMacroName" class="sr-only">{{localize 'htmltoscene.scenesettings.autoMacros.iframeReadyMacro'}}</label>
+			<input id="htmltoscene-iframeReadyMacroName" data-dtype="String" class="html-input" type="text" name="flags.htmltoscene.iframeReadyMacroName" placeholder="{{localize 'htmltoscene.scenesettings.autoMacros.iframeReadyMacro'}}" value="{{iframeReadyMacroName}}" aria-label="{{localize 'htmltoscene.scenesettings.autoMacros.iframeReadyMacro'}}"/>
+			<label for="htmltoscene-iframeUpdatedMacroName" class="sr-only">{{localize 'htmltoscene.scenesettings.autoMacros.iframeUpdatedMacro'}}</label>
+			<input id="htmltoscene-iframeUpdatedMacroName" data-dtype="String" class="html-input" type="text" name="flags.htmltoscene.iframeUpdatedMacroName" placeholder="{{localize 'htmltoscene.scenesettings.autoMacros.iframeUpdatedMacro'}}" value="{{iframeUpdatedMacroName}}" aria-label="{{localize 'htmltoscene.scenesettings.autoMacros.iframeUpdatedMacro'}}"/>
+		</div>
+		<hr class="section-divider"/>
+	</div>
+	<p class="notes warning-note">{{ localize "htmltoscene.scenesettings.rememberjsexecution" }}</p>
+</div>
