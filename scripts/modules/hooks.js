@@ -1,5 +1,4 @@
 import { HTMLToScene } from '../classes/HTMLToScene.js';
-import { ModuleInfo } from '../core.js';
 
 /**
  * @module html-to-scene.HTMLToSceneHooks
@@ -25,11 +24,6 @@ class HTMLToSceneHooks {
 		Hooks.on('renderSceneConfig', (...args) =>
 			HTMLToScene.renderSceneConfig(...args)
 		);
-
-		// Foundry VTT v13: Ensure form data is saved even when fields are disabled
-		Hooks.on('preUpdateScene', (scene, updateData, options, userId) => {
-			HTMLToScene.prepareSceneUpdate(scene, updateData);
-		});
 
 		Hooks.on('collapseSidebar', () => HTMLToScene.updateDimensions());
 
